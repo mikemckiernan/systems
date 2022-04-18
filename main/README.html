@@ -82,7 +82,7 @@
 <p><img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/merlin-systems" />
 <a class="reference external" href="https://pypi.python.org/pypi/merlin-systems/"><img alt="PyPI version shields.io" src="https://img.shields.io/pypi/v/merlin-systems.svg" /></a>
 <img alt="GitHub License" src="https://img.shields.io/github/license/NVIDIA-Merlin/systems" />
-<a class="reference external" href="https://nvidia-merlin.github.io/systems/main/Introduction.html"><img alt="Documentation" src="https://img.shields.io/badge/documentation-blue.svg" /></a></p>
+<a class="reference external" href="https://nvidia-merlin.github.io/systems/main/README.html"><img alt="Documentation" src="https://img.shields.io/badge/documentation-blue.svg" /></a></p>
 <p>Merlin Systems provides tools for combining recommendation models with other elements of production recommender systems like feature stores, nearest neighbor search, and exploration strategies into end-to-end recommendation pipelines that can be served with <a class="reference external" href="https://github.com/triton-inference-server/server">Triton Inference Server</a>.</p>
 <div class="section" id="quickstart">
 <h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline"></a></h2>
@@ -100,8 +100,8 @@
 
 <span class="c1"># Define ensemble pipeline</span>
 <span class="n">pipeline</span> <span class="o">=</span> <span class="p">(</span>
-	<span class="n">workflow</span><span class="o">.</span><span class="n">input_schema</span><span class="o">.</span><span class="n">column_names</span> <span class="o">&gt;&gt;</span> 
-	<span class="n">TransformWorkflow</span><span class="p">(</span><span class="n">workflow</span><span class="p">)</span> <span class="o">&gt;&gt;</span> 
+	<span class="n">workflow</span><span class="o">.</span><span class="n">input_schema</span><span class="o">.</span><span class="n">column_names</span> <span class="o">&gt;&gt;</span>
+	<span class="n">TransformWorkflow</span><span class="p">(</span><span class="n">workflow</span><span class="p">)</span> <span class="o">&gt;&gt;</span>
 	<span class="n">PredictTensorflow</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span class="p">)</span>
 
@@ -130,7 +130,7 @@ The notebook shows how to deploy the ensemble and demonstrates sending requests 
     <span class="n">ColumnSchema</span><span class="p">(</span><span class="s2">&quot;user_id&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">),</span>
 <span class="p">])</span>
 
-<span class="c1"># Fetch user features, use them to a compute user vector with retrieval model, </span>
+<span class="c1"># Fetch user features, use them to a compute user vector with retrieval model,</span>
 <span class="c1"># and find candidate items closest to the user vector with nearest neighbor search</span>
 <span class="n">user_features</span> <span class="o">=</span> <span class="n">request_schema</span><span class="o">.</span><span class="n">column_names</span> <span class="o">&gt;&gt;</span> <span class="n">QueryFeast</span><span class="o">.</span><span class="n">from_feature_view</span><span class="p">(</span>
     <span class="n">store</span><span class="o">=</span><span class="n">feature_store</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s2">&quot;user_features&quot;</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;user_id&quot;</span>
@@ -152,7 +152,7 @@ The notebook shows how to deploy the ensemble and demonstrates sending requests 
     <span class="n">store</span><span class="o">=</span><span class="n">feature_store</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s2">&quot;movie_features&quot;</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;filtered_ids&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="c1"># Join user and item features for the candidates and use them to predict relevance scores  </span>
+<span class="c1"># Join user and item features for the candidates and use them to predict relevance scores</span>
 <span class="n">combined_features</span> <span class="o">=</span> <span class="n">item_features</span> <span class="o">&gt;&gt;</span> <span class="n">UnrollFeatures</span><span class="p">(</span>
     <span class="s2">&quot;movie_id&quot;</span><span class="p">,</span> <span class="n">user_features</span><span class="p">,</span> <span class="n">unrolled_prefix</span><span class="o">=</span><span class="s2">&quot;user&quot;</span>
 <span class="p">)</span>
@@ -255,7 +255,7 @@ The notebook shows how to deploy the ensemble and demonstrates sending requests 
   <div class="rst-other-versions">
     <dl>
       <dt>Tags</dt>
-      <dd><a href="../v0.1.0/README.html">v0.1.0</a></dd>
+      <dd><a href="../v0.1.0/index.html">v0.1.0</a></dd>
     </dl>
     <dl>
       <dt>Branches</dt>
