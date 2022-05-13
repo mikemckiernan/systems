@@ -100,6 +100,9 @@ between containers, create the volume by running the following command:</p>
 </pre></div>
 </div>
 </li>
+</ol>
+<p>Note that the saved <code class="docutils literal notranslate"><span class="pre">dlrm</span></code> model, NVT <code class="docutils literal notranslate"><span class="pre">workflow</span></code> and processed synthetic parquet files should be stored in the <code class="docutils literal notranslate"><span class="pre">merlin-examples</span></code> folder so that they can be mounted to the inference container.</p>
+<ol>
 <li><p>Pull and start the container by running the following command:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run --gpus all --rm -it <span class="se">\</span>
   -p <span class="m">8888</span>:8888 -p <span class="m">8797</span>:8787 -p <span class="m">8796</span>:8786 --ipc<span class="o">=</span>host <span class="se">\</span>
@@ -120,7 +123,7 @@ Your shell prompt should look similar to the following example:</p>
 <p>For more information, see the JupyterLab <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html">Installation Guide</a>.</p>
 </li>
 <li><p>Start the JupyterLab server by running the following command:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>jupyter-lab --allow-root --ip<span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>jupyter-lab --allow-root --ip<span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span> --NotebookApp.token<span class="o">=</span><span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
 <p>View the messages in your terminal to identify the URL for JupyterLab.
@@ -132,7 +135,7 @@ or http://127.0.0.1:8888/lab?token<span class="o">=</span>9b537d1fda9e4e9cadc673
 </div>
 </li>
 <li><p>Open a browser and use the <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> URL provided in the messages by JupyterLab.</p></li>
-<li><p>After you log in to JupyterLab, navigate to the <code class="docutils literal notranslate"><span class="pre">/merlin/examples</span></code> directory to try out the example notebooks.</p></li>
+<li><p>After you log in to JupyterLab, navigate to the <code class="docutils literal notranslate"><span class="pre">/systems/examples</span></code> directory to try out the example notebooks.</p></li>
 </ol>
 </div>
 <div class="toctree-wrapper compound">
