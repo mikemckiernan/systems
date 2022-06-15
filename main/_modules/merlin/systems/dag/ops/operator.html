@@ -80,9 +80,9 @@
 <span class="c1"># this needs to be before any modules that import protobuf</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span>
 
+<span class="kn">import</span> <span class="nn">tritonclient.grpc.model_config_pb2</span> <span class="k">as</span> <span class="nn">model_config</span>  <span class="c1"># noqa</span>
 <span class="kn">from</span> <span class="nn">google.protobuf</span> <span class="kn">import</span> <span class="n">text_format</span>  <span class="c1"># noqa</span>
 
-<span class="kn">import</span> <span class="nn">merlin.systems.triton.model_config_pb2</span> <span class="k">as</span> <span class="nn">model_config</span>  <span class="c1"># noqa</span>
 <span class="kn">from</span> <span class="nn">merlin.dag</span> <span class="kn">import</span> <span class="n">BaseOperator</span>  <span class="c1"># noqa</span>
 <span class="kn">from</span> <span class="nn">merlin.dag.selector</span> <span class="kn">import</span> <span class="n">ColumnSelector</span>  <span class="c1"># noqa</span>
 <span class="kn">from</span> <span class="nn">merlin.schema</span> <span class="kn">import</span> <span class="n">Schema</span>  <span class="c1"># noqa</span>
@@ -239,6 +239,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">node_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">version</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">backend</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Export the class object as a config and all related files to the user-defined path.</span>
@@ -273,7 +274,7 @@
         <span class="n">node_export_path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">/</span> <span class="n">node_name</span>
         <span class="n">node_export_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="n">config</span> <span class="o">=</span> <span class="n">model_config</span><span class="o">.</span><span class="n">ModelConfig</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">node_name</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;nvtabular&quot;</span><span class="p">,</span> <span class="n">platform</span><span class="o">=</span><span class="s2">&quot;op_runner&quot;</span><span class="p">)</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">model_config</span><span class="o">.</span><span class="n">ModelConfig</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">node_name</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">backend</span><span class="p">,</span> <span class="n">platform</span><span class="o">=</span><span class="s2">&quot;op_runner&quot;</span><span class="p">)</span>
 
         <span class="n">config</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;operator_names&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">string_value</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">([</span><span class="n">node_name</span><span class="p">])</span>
 
@@ -298,7 +299,7 @@
             <span class="c1"># this assumes the list columns are 1D tensors both for cats and conts</span>
             <span class="n">config</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                 <span class="n">model_config</span><span class="o">.</span><span class="n">ModelOutput</span><span class="p">(</span>
-                    <span class="n">name</span><span class="o">=</span><span class="n">col_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">col_name</span><span class="p">,</span>
                     <span class="n">data_type</span><span class="o">=</span><span class="n">_convert_dtype</span><span class="p">(</span><span class="n">col_dict</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">]),</span>
                     <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
                 <span class="p">)</span>
