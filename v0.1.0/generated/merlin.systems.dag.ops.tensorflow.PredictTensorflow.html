@@ -80,19 +80,19 @@
 <h1>merlin.systems.dag.ops.tensorflow.PredictTensorflow<a class="headerlink" href="#merlin-systems-dag-ops-tensorflow-predicttensorflow" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt id="merlin.systems.dag.ops.tensorflow.PredictTensorflow">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">merlin.systems.dag.ops.tensorflow.</span></code><code class="sig-name descname"><span class="pre">PredictTensorflow</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_or_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_objects</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/merlin/systems/dag/ops/tensorflow.html#PredictTensorflow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#merlin.systems.dag.ops.tensorflow.PredictTensorflow" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">merlin.systems.dag.ops.tensorflow.</span></code><code class="sig-name descname"><span class="pre">PredictTensorflow</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_or_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_objects</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/merlin/systems/dag/ops/tensorflow.html#PredictTensorflow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#merlin.systems.dag.ops.tensorflow.PredictTensorflow" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">merlin.systems.dag.ops.operator.InferenceOperator</span></code></p>
 <p>This operator takes a tensorflow model and packages it correctly for tritonserver
 to run, on the tensorflow backend.</p>
 <dl class="py method">
 <dt id="merlin.systems.dag.ops.tensorflow.PredictTensorflow.__init__">
-<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_or_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_objects</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/merlin/systems/dag/ops/tensorflow.html#PredictTensorflow.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#merlin.systems.dag.ops.tensorflow.PredictTensorflow.__init__" title="Permalink to this definition"></a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_or_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_objects</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/merlin/systems/dag/ops/tensorflow.html#PredictTensorflow.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#merlin.systems.dag.ops.tensorflow.PredictTensorflow.__init__" title="Permalink to this definition"></a></dt>
 <dd><p>Instantiate a PredictTensorflow inference operator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model_or_path</strong> (<em>Tensorflow model</em><em> or </em><em>string</em>) – This can be a tensorflow model or a path to a tensorflow model.</p></li>
-<li><p><strong>custom_objects</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Any custom objects that need to be loaded with the model, by default None.</p></li>
+<li><p><strong>custom_objects</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>, </em><em>optional</em>) – Any custom objects that need to be loaded with the model, by default None.</p></li>
 </ul>
 </dd>
 </dl>
@@ -109,7 +109,7 @@ to run, on the tensorflow backend.</p>
 <td><p>Instantiate a PredictTensorflow inference operator.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">column_mapping</span></code>(col_selector)</p></td>
-<td><p></p></td>
+<td><p>Compute which output columns depend on which input columns</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_column_schema</span></code>(col_name, input_schema)</p></td>
 <td><p></p></td>
@@ -120,8 +120,8 @@ to run, on the tensorflow backend.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#merlin.systems.dag.ops.tensorflow.PredictTensorflow.compute_output_schema" title="merlin.systems.dag.ops.tensorflow.PredictTensorflow.compute_output_schema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_output_schema</span></code></a>(input_schema, col_selector)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_selector</span></code>(input_schema, selector, …)</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_selector</span></code>(input_schema, selector[, …])</p></td>
+<td><p>Provides a hook method for sub-classes to override to implement custom column selection logic.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_node</span></code>(selector)</p></td>
 <td><p>_summary_</p></td>
@@ -130,7 +130,13 @@ to run, on the tensorflow backend.</p>
 <td><p>Create a directory inside supplied path based on our export name</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">output_column_names</span></code>(col_selector)</p></td>
-<td><p>Given a set of columns names returns the names of the transformed columns this operator will produce :param columns: The columns to apply this operator to :type columns: list of str, or list of list of str</p></td>
+<td><p>Given a set of columns names returns the names of the transformed columns this operator will produce</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code>(col_selector, transformable)</p></td>
+<td><p>Transform the dataframe by applying this operator to the set of input columns</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_schemas</span></code>(parents_schema, …[, …])</p></td>
+<td><p>Provides a hook method that sub-classes can override to implement schema validation logic.</p></td>
 </tr>
 </tbody>
 </table>
