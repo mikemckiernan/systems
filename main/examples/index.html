@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+    <link rel="canonical" href="https://nvidia-merlin.github.io/systems/main/examples/index.html" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -89,11 +90,7 @@ file or browse the <a class="reference external" href="https://github.com/NVIDIA
 <h2>Running the Example Notebook<a class="headerlink" href="#running-the-example-notebook" title="Permalink to this headline"></a></h2>
 <p>Docker containers are available from the NVIDIA GPU Cloud.
 Access the catalog of containers at <a class="reference external" href="http://ngc.nvidia.com/catalog/containers">http://ngc.nvidia.com/catalog/containers</a>.</p>
-<p>Use the following container to run the example notebook:</p>
-<ul class="simple">
-<li><p>Merlin TensorFlow Inference</p></li>
-</ul>
-<p>To run the example notebooks using Docker containers, perform the following steps:</p>
+<p>We use the latest stable version of the <a class="reference external" href="https://catalog.ngc.nvidia.com/orgs/nvidia/teams/merlin/containers/merlin-tensorflow/tags">merlin-tensorflow</a> container to run the example notebooks. To run the example notebooks using Docker containers, perform the following steps:</p>
 <ol>
 <li><p>If you haven’t already created a Docker volume to share models and datasets
 between containers, create the volume by running the following command:</p>
@@ -182,7 +179,18 @@ or http://127.0.0.1:8888/lab?token<span class="o">=</span>9b537d1fda9e4e9cadc673
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVJ1Y1YJHK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-NVJ1Y1YJHK', {
+          'anonymize_ip': false,
+      });
+    </script> 
 
 </body>
 </html>
