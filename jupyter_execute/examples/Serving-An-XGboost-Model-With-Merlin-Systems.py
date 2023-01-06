@@ -193,7 +193,7 @@ outputs = [
 ]
 # send request to tritonserver
 with grpcclient.InferenceServerClient("localhost:8001") as client:
-    response = client.infer("ensemble_model", inputs, outputs=outputs)
+    response = client.infer("executor_model", inputs, outputs=outputs)
 
 
 # We can now compare the predictions from the server to those from our local model.
